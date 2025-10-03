@@ -4,7 +4,7 @@ package user
 
 type User struct {
 	//gorm.Model
-	ID    uint   `gorm:"primarykey"`
+	ID    uint32   `gorm:"primarykey"`
 	Email string //`json:"email"`
 	//Password string `json:"password"`
 	//Task     []taskService.Task

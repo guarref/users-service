@@ -1,14 +1,12 @@
 package user
 
-import "pet_project_final/internal/taskService"
-
 type UserService struct {
 	urepo UserRepository
-	srepo taskService.TaskRepository
+	//srepo taskService.TaskRepository
 }
 
-func NewUserService(urepo UserRepository, srepo taskService.TaskRepository) *UserService {
-	return &UserService{urepo: urepo, srepo: srepo}
+func NewUserService(urepo UserRepository) *UserService {
+	return &UserService{urepo: urepo}
 }
 
 func (s *UserService) CreateUser(user User) (User, error) {
@@ -19,14 +17,14 @@ func (s *UserService) GetAllUsers() ([]User, error) {
 	return s.urepo.GetAllUsers()
 }
 
-func (s *UserService) GetTasksUserId(user_id uint) ([]taskService.Task, error) {
-	return s.srepo.GetTasksUserId(user_id)
+func (s *UserService) GetUserByID(id uint32) (User, error) {
+	return s.urepo.GetUserByID(id)
 }
 
-func (s *UserService) UpdateUserByID(id uint, user User) (User, error) {
+func (s *UserService) UpdateUserByID(id uint32, user User) (User, error) {
 	return s.urepo.UpdateUserByID(id, user)
 }
 
-func (s *UserService) DeleteUserByID(id uint) error {
+func (s *UserService) DeleteUserByID(id uint32) error {
 	return s.urepo.DeleteUserByID(id)
 }

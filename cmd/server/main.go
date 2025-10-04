@@ -4,6 +4,7 @@ import (
 	"log"
 
 	"github.com/guarref/users-service/internal/database"
+	"github.com/guarref/users-service/internal/transport/grpc"
 	"github.com/guarref/users-service/internal/user"
 )
 
@@ -12,7 +13,7 @@ func main() {
 	repo := user.NewUserRepository(database.DB)
 	svc := user.NewUserService(repo)
 
-	if err := transportgrpc.RunGRPC(svc); err != nil {
+	if err := grpc.RunGRPC(svc); err != nil {
 		log.Fatalf("gRPC сервер завершился с ошибкой: %v", err)
 	}
 }

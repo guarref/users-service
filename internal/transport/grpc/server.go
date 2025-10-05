@@ -19,12 +19,12 @@ func RunGRPC(svc *user.UserService) error {
 
 	userpb.RegisterUserServiceServer(grpcSrv, NewHandler(svc))
 	if err := grpcSrv.Serve(listener); err != nil {
-        return fmt.Errorf("Error of running server: %v", err)
-    }
-  	
-  // 1. net.Listen на ":50051"
-  // 2. grpc.NewServer()
-  // 3. userpb.RegisterUserServiceServer(grpcSrv, NewHandler(svc))
-  // 4. grpcSrv.Serve(listener)
-  	return nil
+		return fmt.Errorf("Error of running server: %v", err)
+	}
+
+	// 1. net.Listen на ":50051"
+	// 2. grpc.NewServer()
+	// 3. userpb.RegisterUserServiceServer(grpcSrv, NewHandler(svc))
+	// 4. grpcSrv.Serve(listener)
+	return nil
 }

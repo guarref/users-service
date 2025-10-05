@@ -73,7 +73,7 @@ func (h *Handler) ListUsers(_ context.Context, req *userpb.ListUsersRequest) (*u
 		return nil, err
 	}
 
-	arrUsers := make([]*userpb.User, len(users))
+	arrUsers := make([]*userpb.User, 0, len(users))
 
 	for _, val := range users {
 		oneUser := userpb.User{Id: val.ID, Email: val.Email}

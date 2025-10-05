@@ -12,7 +12,7 @@ var DB *gorm.DB
 
 func InitDB() {
 	// в dsn вводим данные, которые мы указали при создании контейнера
-	dsn := "host=localhost user=postgres password=PostgrePass dbname=postgres port=5432 sslmode=disable"
+	dsn := "host=localhost user=postgres password=PostgresPass dbname=postgres port=5432 sslmode=disable"
 	var err error
 	DB, err = gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
